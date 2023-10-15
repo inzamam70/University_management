@@ -1,4 +1,5 @@
 
+
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@
 /* Navbar Start */
 #navbar{
     background: #f9f9f9;
+
 }
 #logo{
     font-size: 36px;
@@ -52,7 +54,7 @@
 .home{
     width: 100%;
     height: 90vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(./images/background\ img.png);
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(../images/school-2.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -80,17 +82,17 @@
     animation: changetext 10s infinite linear;
 }
 @keyframes changetext{
-    0%{content: "France";}
-    10%{content: "Spain";}
-    20%{content: "United States";}
-    30%{content: "China";}
-    40%{content: "India";}
-    50%{content: "Pakistan";}
-    60%{content: "Italy";}
-    70%{content: "Turkey";}
-    80%{content: "Mexico";}
-    90%{content: "Germany";}
-    100%{content: "United kingdom";}
+    0%{content: "UITS";}
+    10%{content: "Dhaka University";}
+    20%{content: "UIU";}
+    30%{content: "BRACK UNiversity";}
+    40%{content: "Dhaka Medical College";}
+    50%{content: "BUET";}
+    60%{content: "Jhangirnogor University";}
+    70%{content: "NSU";}
+    80%{content: "KUET";}
+    90%{content: "Rajshahi Medical";}
+    100%{content: "East West";}
 } 
 .home .content p{
     color: white;
@@ -136,6 +138,8 @@
 .book{
     background: #f9f9f9;
     padding: 50px;
+    margin-top: 80px;
+    
 }
 .main-text h1{
     text-align: center;
@@ -146,11 +150,10 @@
     color: #ffa500;
 }
 .book .card{
-    border-radius: 10px;
-    box-shadow: 0px 5px 5px -6px black;
 }
 .book .row{
     margin-top: 30px;
+    
 }
 .book form input{
     padding: 10px;
@@ -179,6 +182,40 @@
 }
 .book .submit:hover{
     width: 170px;
+}
+
+.forget{
+   
+    font-size: .9em;
+    color: #0c0000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.forget label input{
+    margin-right: 3px;
+}
+.forget label a{
+    color: #0c0101;
+    text-decoration: none;
+}
+.forget label a:hover{
+    text-decoration: underline;
+}
+.register{
+    font-size: .9em;
+    color: #1a0101;
+  
+    margin: 25px 0 10px;
+}
+.register p a{
+    color: #070000;
+    text-decoration: none;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
 }
 @media (max-width:765px){
     .book{
