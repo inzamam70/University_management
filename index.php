@@ -158,117 +158,160 @@
 
 
 
-        <div class="row" style="margin-top: 30px;">
+      </div>
+    </section>
+    <!-- Section Packages End -->
+    <div class="main-txt">
+          <h1><span>Top</span>University</h1>
+        </div>
+    <section class="top-university">
+    
+      <div class="top-university-container">
 
-         
+        
 
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/uits.png" alt="nike-air-shoe">
+            </div>
 
+            <div class="top-university-contentBx">
+
+                <h2>UITS</h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
 
         </div>
 
 
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/nsu.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2>NSU</h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
+
+        </div>
+
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/JU_logo.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2>Jahangirnogor University</h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
+
+        </div>
+
+
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/DU_logo.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2>Dhaka University</h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
+
+        </div>
+
+
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/buet.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2>BUET</h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
+
+        </div>
+
+
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="./images/bracu_logo.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2>BRAC </h2>
+
+                <div class="top-university-size">
+                    <h3>Rating :</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <a href="#">Buy Now</a>
+            </div>
+
+        </div>
+
+
+
+
       </div>
     </section>
-    <!-- Section Packages End -->
-
-
 
 
 
 
 
     <!-- Section Services Start -->
-    <section class="services" id="services">
-      <div class="container">
 
-        <div class="main-txt">
-          <h1><span>T</span>op Universities</h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-hotel"></i>
-              <div class="card-body">
-                <h3>Affordable Hotel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-utensils"></i>
-              <div class="card-body">
-                <h3>Food & Drinks</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-bullhorn"></i>
-              <div class="card-body">
-                <h3>Safty Guide</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-globe-asia"></i>
-              <div class="card-body">
-                <h3>Around The World</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-plane"></i>
-              <div class="card-body">
-                <h3>Fastest Travel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-hiking"></i>
-              <div class="card-body">
-                <h3>Adventures</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-      </div>
-    </section>
-    <!-- Section Services End -->
 
 
 
@@ -281,42 +324,42 @@
           <h1><span>G</span>allary</h1>
         </div>
 
-        <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px;row-gap:30px;">
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g1.png" alt="" height="230px">
+              <img src="./images/dhaka_university_01.png" alt="" height="230px">
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g2.png" alt="" height="230px">
+              <img src="./images/UITS-campus.png" alt="" height="230px">
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g3.png" alt="" height="230px">
+              <img src="./images/UIU-campus.png" alt="" height="230px">
             </div>
           </div>
-        </div>
+       
 
 
-        <div class="row" style="margin-top: 30px;">
+       
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g4.png" alt="" height="230px">
+              <img src="./images/JU-campus.png" alt="" height="230px">
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g5.png" alt="" height="230px">
+              <img src="./images/DHAKA-MEDICAL.png" alt="" height="230px">
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/g6.png" alt="" height="230px">
+              <img src="./images/KU-campus.png" alt="" height="230px">
             </div>
           </div>
-        </div>
+          </div>
 
       </div>
     </section>
