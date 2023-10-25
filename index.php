@@ -1,3 +1,12 @@
+<?php 
+include_once 'config.php';
+session_start();
+if(!isset($_SESSION['user_name'])){
+  header('location:login.php');
+}
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,13 +51,54 @@
 
     <!-- Home Section Start -->
     <div class="home">
-        <div class="content">
+        <!-- <div class="content">
             <h5>Admission Going On</h5>
             <h1>Visit <span class="changecontent"></span></h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, nisi.</p>
             <a href="#book">See More</a>
+        </div> -->
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="images/UIU-campus.png" class="d-block w-100" alt="..." style="weight:100%;height:1000px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="font-weight:600;font-size:40px;">First slide label</h5>
+            <p style="margin-bottom:150px;">Some representative placeholder content for the first slide.</p>
+          </div>
         </div>
+        <div class="carousel-item">
+          <img src="images/UITS-campus.png" class="d-block w-100" alt="..." style="weight:100%;height:1000px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="font-weight:600;font-size:40px;">Second slide label</h5>
+            <p style="margin-bottom:150px;">Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/JU-campus.png" class="d-block w-100" alt="..." style="weight:100%;height:1000px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="font-weight:600;font-size:40px;">Third slide label</h5>
+            <p style="margin-bottom:150px;">Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+    </div>
+
+
     <!-- Home Section End -->
 
 
@@ -66,98 +116,32 @@
     <section class="packages" id="packages">
       <div class="container">
         
-        <div class="main-txt">
-          <h1><span>U</span>niversities</h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;row-gap:30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/public-image.gif" alt="">
-              <div class="card-body">
-                <h3>Public University</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <a href="">See More</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/user.gif" alt="">
-              <div class="card-body">
-                <h3>Privet University</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <a href="#book">See More</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/health-report.gif" alt="">
-              <div class="card-body">
-                <h3>Medical College</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <a href="#book">See More</a>
-              </div>
-            </div>
-
+          <div class="main-txt">
+            <h1><span>Top</span>Depeartment</h1>
           </div>
 
-          <div class="col-md-4 py-3 py-md-0">
+          <div class="row" style="margin-top: 30px;row-gap:30px;">
 
-            <div class="card">
-              <img src="./images/architecture.gif" alt="">
-              <div class="card-body">
-                <h3>Engeenering</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <a href="#book">See More</a>
+              <?php 
+              include_once 'config.php';
+              $sql = "SELECT * FROM `categories`";
+              $result = mysqli_query($conn,$sql);
+              while($row = mysqli_fetch_assoc($result)){
+              ?>
+
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                    <img src="<?= $row['image']?>" alt="">
+                      <div class="card-body">
+                        <h3><?= $row['name']?></h3>
+                        <p><?= $row['description']?></p>
+                        <a href="item.php">See More</a>
+                      </div>
+                  </div>
               </div>
-            </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/chemistry.gif" alt="">
-              <div class="card-body">
-                <h3>Polytechnech</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <a href="#book">See More</a>
-              </div>
-            </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/campus.gif" alt="">
-              <div class="card-body">
-                <h3>National University</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <!-- <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div> -->
-                <a href="#book">Book Now</a>
-              </div>
-            </div>
-
-            </div>
-
-
-        </div>
-
-
-
+              <?php } ?>
+          </div>
       </div>
     </section>
     <!-- Section Packages End -->
@@ -186,7 +170,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="view-details.php">See More</a>
             </div>
 
         </div>
@@ -208,7 +192,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="#">See More</a>
             </div>
 
         </div>
@@ -229,7 +213,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="#">See More</a>
             </div>
 
         </div>
@@ -251,7 +235,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="#">See More</a>
             </div>
 
         </div>
@@ -273,7 +257,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="#">See More</a>
             </div>
 
         </div>
@@ -295,7 +279,7 @@
                     <span>9</span>
                     <span>10</span>
                 </div>
-                <a href="#">Buy Now</a>
+                <a href="#">See More</a>
             </div>
 
         </div>
@@ -323,43 +307,22 @@
         <div class="main-txt">
           <h1><span>G</span>allary</h1>
         </div>
-
+        
         <div class="row" style="margin-top: 30px;row-gap:30px;">
+          <?php 
+          $sql = "SELECT * FROM `gallery`";
+          $result = mysqli_query($conn,$sql);
+          while($row = mysqli_fetch_assoc($result)){
+          
+          ?>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card">
-              <img src="./images/dhaka_university_01.png" alt="" height="230px">
+              <img src="<?= $row['image']?>" alt="" height="230px">
             </div>
           </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/UITS-campus.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/UIU-campus.png" alt="" height="230px">
-            </div>
-          </div>
-       
-
-
-       
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/JU-campus.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/DHAKA-MEDICAL.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/KU-campus.png" alt="" height="230px">
-            </div>
-          </div>
-          </div>
+        
+        <?php } ?>
+        </div>
 
       </div>
     </section>

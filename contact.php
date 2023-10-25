@@ -1,5 +1,23 @@
 
+<?php 
+session_start();
+include_once 'config.php';
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $text = $_POST['text'];
 
+    $sql = "INSERT INTO contact (name,email,phone,text) VALUES ('$name','$email','$phone','$text')";
+    $result = mysqli_query($conn,$sql);
+    if($result){
+        echo "<script>alert('Message Sent Successfully')</script>";
+    }else{
+        echo "<script>alert('Message Sent Failed')</script>";
+    }
+}
+
+?>
 
 <html lang="en">
 <head>
@@ -52,7 +70,7 @@
             </div>
           </div>
           <div class="col-md-6 py-3 py-md-0">
-            <form action="#">
+            <form action="#" method="post">
             <label for="name" style="font-size:20px;font-weight:600;padding:5px;">Name:</label>
                 <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required><br>
                 <label for="email" style="font-size:20px;font-weight:600;padding:5px;">Email:</label>

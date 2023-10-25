@@ -1,4 +1,37 @@
+<?php 
+include_once 'config.php';
+session_start();
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $user_type = $_POST['user_type'];
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
 
+   
+
+    $select = "SELECT * FROM user_form WHERE email = '$email'&& password = '$password'";
+
+   $result = mysqli_query($conn, $select);
+
+   if(mysqli_num_rows($result) > 0){
+
+      $error[] = 'user already exist!';
+
+   }else{
+
+      if($password != $cpassword){
+         $error[] = 'password not matched!';
+      }else{
+         $insert = "INSERT INTO user_form(name, email,phone, password, user_type) VALUES('$name','$email','$phone','$password','$user_type')";
+         mysqli_query($conn, $insert);
+         header('location:login.php');
+      }
+   }
+}
+
+?>
 
 <html lang="en">
 <head>

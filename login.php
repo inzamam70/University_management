@@ -1,4 +1,27 @@
+<?php
+include_once 'config.php';
+session_start();
+if(isset($_POST['submit'])){
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $select = "SELECT * FROM user_form WHERE email = '$email'&& password = '$password'";
+    $result = mysqli_query($conn, $select);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_array($result);
+        if($row['user_type'] == 'admin'){
+            $_SESSION['admin_name'] = $row['name'];
+            header('location:admin.php');
+        }else{
+            $_SESSION['user_name'] = $row['name'];
+            header('location:index.php');
+        }
+    }else{
+        $error[] = 'invalid email or password!';
+    }
+       
+}
 
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
