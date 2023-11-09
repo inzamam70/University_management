@@ -51,13 +51,6 @@ if(!isset($_SESSION['user_name'])){
 
     <!-- Home Section Start -->
     <div class="home">
-        <!-- <div class="content">
-            <h5>Admission Going On</h5>
-            <h1>Visit <span class="changecontent"></span></h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, nisi.</p>
-            <a href="#book">See More</a>
-        </div> -->
-
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -68,14 +61,14 @@ if(!isset($_SESSION['user_name'])){
       <div class="carousel-item active">
           <img src="images/UIU-campus.png" class="d-block w-100" alt="..." style="weight:100%;height:1000px;">
           <div class="carousel-caption d-none d-md-block">
-            <h5 style="font-weight:600;font-size:40px;">First slide label</h5>
-            <p style="margin-bottom:150px;">Some representative placeholder content for the first slide.</p>
+            <h5 style="font-weight:600;font-size:40px;">Admission Open now</h5>
+            <p style="margin-bottom:150px;">Build a Most Successfull Career.</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/UITS-campus.png" class="d-block w-100" alt="..." style="weight:100%;height:1000px;">
           <div class="carousel-caption d-none d-md-block">
-            <h5 style="font-weight:600;font-size:40px;">Second slide label</h5>
+            <h5 style="font-weight:600;font-size:40px;">"  ......"</h5>
             <p style="margin-bottom:150px;">Some representative placeholder content for the second slide.</p>
           </div>
         </div>
@@ -86,6 +79,8 @@ if(!isset($_SESSION['user_name'])){
             <p style="margin-bottom:150px;">Some representative placeholder content for the third slide.</p>
           </div>
         </div>
+        
+
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -136,7 +131,7 @@ if(!isset($_SESSION['user_name'])){
                       <div class="card-body">
                         <h3><?= $row['name']?></h3>
                         <p><?= $row['description']?></p>
-                        <a href="item.php">See More</a>
+                        <a href="top-dept-uni.php?category_id=<?= $row['id']?>">See More</a>
                       </div>
                   </div>
               </div>
@@ -152,137 +147,30 @@ if(!isset($_SESSION['user_name'])){
     
       <div class="top-university-container">
 
-        
+        <?php 
+        include_once 'config.php';
+        $sql = "SELECT * FROM `university` ORDER BY rating ASC";
+        $result = mysqli_query($conn,$sql);
+        while($row = mysqli_fetch_assoc($result)){
+        ?>
 
         <div class="top-university-card">
             <div class="top-university-imgBx">
-                <img src="./images/uits.png" alt="nike-air-shoe">
+                <img src="<?=$row['image']?>" alt="nike-air-shoe">
             </div>
 
             <div class="top-university-contentBx">
 
-                <h2>UITS</h2>
+                <h2><?=$row['short_title']?></h2>
 
                 <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
+                    <h3>Rating : <?=$row['rating']?></h3>
                 </div>
-                <a href="view-details.php">See More</a>
+                <h3><?=$row['full_title']?></h3>
             </div>
 
         </div>
-
-
-        <div class="top-university-card">
-            <div class="top-university-imgBx">
-                <img src="./images/nsu.png" alt="nike-air-shoe">
-            </div>
-
-            <div class="top-university-contentBx">
-
-                <h2>NSU</h2>
-
-                <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <a href="#">See More</a>
-            </div>
-
-        </div>
-
-        <div class="top-university-card">
-            <div class="top-university-imgBx">
-                <img src="./images/JU_logo.png" alt="nike-air-shoe">
-            </div>
-
-            <div class="top-university-contentBx">
-
-                <h2>Jahangirnogor University</h2>
-
-                <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <a href="#">See More</a>
-            </div>
-
-        </div>
-
-
-        <div class="top-university-card">
-            <div class="top-university-imgBx">
-                <img src="./images/DU_logo.png" alt="nike-air-shoe">
-            </div>
-
-            <div class="top-university-contentBx">
-
-                <h2>Dhaka University</h2>
-
-                <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <a href="#">See More</a>
-            </div>
-
-        </div>
-
-
-        <div class="top-university-card">
-            <div class="top-university-imgBx">
-                <img src="./images/buet.png" alt="nike-air-shoe">
-            </div>
-
-            <div class="top-university-contentBx">
-
-                <h2>BUET</h2>
-
-                <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <a href="#">See More</a>
-            </div>
-
-        </div>
-
-
-        <div class="top-university-card">
-            <div class="top-university-imgBx">
-                <img src="./images/bracu_logo.png" alt="nike-air-shoe">
-            </div>
-
-            <div class="top-university-contentBx">
-
-                <h2>BRAC </h2>
-
-                <div class="top-university-size">
-                    <h3>Rating :</h3>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <a href="#">See More</a>
-            </div>
-
-        </div>
+        <?php } ?>
 
 
 

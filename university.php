@@ -2,7 +2,6 @@
 
 
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,36 +42,33 @@
    
     <div class="item-body">
     <div class="main-txt" style="padding:10px;margin-bottom:20px">
-          <h1><span>Medical</span>College</h1>
+          <h1><span>U</span>niversity</h1>
         </div>
 
         <div class="item">
-            <div class="item-card">
-                <div class="item-imgbx">
-                    <img src="./images/uits.png" alt="">
-                </div>
-                <div class="item-contentbx">
-                    <h2>UITS</h2>
-                    <p>University of Information Technology and Sciences</p>
-                    <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
-                    </div>
-                </div>
-            </div>
+            <?php
+                include_once 'config.php';
+                $nav_id = $_GET['nav_id'];
+                $sql = "SELECT * FROM university WHERE nav_id = '$nav_id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
 
             <div class="item-card">
                 <div class="item-imgbx">
-                    <img src="./images/nsu.png" alt="">
+                    <img src="<?=$row['image']?>" alt="">
                 </div>
                 <div class="item-contentbx">
-                    <h2>AIUB</h2>
-                    <p>American International University-Bangladesh</p>
+                    <h2><?=$row['short_title']?></h2>
+                    <p><?=$row['full_title']?></p>
                     <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
+                        <a href="view-details.php?id=<?=$row['id']?>" class="btn">View Details</a>
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
+      
 
         </div>
     </div>

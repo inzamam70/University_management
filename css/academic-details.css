@@ -1,0 +1,121 @@
+
+.academic-item-body{
+    min-height: 100vh ;
+    padding: 50px 0px;
+
+}
+.academic-main-txt{
+   margin-top: 100px; 
+   text-align: center;
+   margin-bottom: 20px;
+}
+.academic-main-txt h1{
+    font-size: 50px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-main-txt h1 span{
+    color: #ff0000;
+
+}
+.academic-item{
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.academic-item .head{
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.academic-item .head h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-item .head .head-details{
+    margin-bottom: 20px;
+    box-shadow:  0 0 10px #000000;
+    padding: 20px;
+    border-radius: 10px;
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.academic-item .head .head-details img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.academic-item .head .head-details p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-item .fees{
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.academic-item .fees h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-item .fees p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-item .teacher-box{
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.academic-item .teacher-box h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.academic-item .teacher-box .teacher-details{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.academic-item .teacher-box .teacher-details .teacher{
+    box-shadow:  0 0 10px #000000;
+    padding: 20px;
+    border-radius: 10px;
+    height: 350px;
+    width: 400px;
+}
+.academic-item .teacher-box .teacher-details .teacher img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.academic-item .teacher-box .teacher-details .teacher .teacher-details-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

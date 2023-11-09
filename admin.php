@@ -79,8 +79,13 @@ if(!isset($_SESSION['admin_name'])){
                 </div>
 
                 <div class="card">
+                    <?php 
+                        $sql = "SELECT * FROM wish";
+                            $result = mysqli_query($conn,$sql);
+                            $count = mysqli_num_rows($result);
+                    ?>
                     <div>
-                        <div class="numbers">80</div>
+                        <div class="numbers"><?= $count?></div>
                         <div class="cardName">Wishes</div>
                     </div>
 
@@ -106,17 +111,23 @@ if(!isset($_SESSION['admin_name'])){
                     </div>
                 </a>
         
+                <a href="view-universities.php" style="text-decoration:none;">
+                    <div class="card">
+                        <?php 
+                        $sql = "SELECT * FROM university";
+                        $result = mysqli_query($conn,$sql);
+                        $count = mysqli_num_rows($result);
+                        ?>
+                        <div>
+                            <div class="numbers"><?= $count?></div>
+                            <div class="cardName">Universites</div>
+                        </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
+                        <div class="iconBx">
+                        <i class="fa-solid fa-building-columns"></i>
+                        </div>
                     </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
+                </a>
             </div>
 
             <!-- ================ Order Details List ================= -->
@@ -124,75 +135,33 @@ if(!isset($_SESSION['admin_name'])){
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Recent Wishes</h2>
-                        <a href="#" class="btn">View All</a>
+                        <!-- <a href="#" class="btn">View All</a> -->
                     </div>
 
                     <table>
                         <thead>
                             <tr>
                                 <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
+                                <td style="text-align:center;">Short Title</td>
+                                <td>Image</td>
                             </tr>
                         </thead>
 
                         <tbody>
+                            <?php
+                            include_once 'config.php';
+                            $sql = "SELECT * FROM wish";
+                            $result = mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_assoc($result)){
+                            ?>
                             <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                                <td><?= $row['name']?></td>
+                                <td style="text-align:center;"><?= $row['full_name']?></td>
+                                <td><img src="<?= $row['image']?>" style="width:100px;height:100px;"></td>
                             </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            <?php } ?>
+                            
+                  
                         </tbody>
                     </table>
                 </div>

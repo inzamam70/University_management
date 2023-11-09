@@ -1,0 +1,205 @@
+
+.compare{
+    width: 100%;
+    background-color: #fff;
+}
+.compare form{
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.compare-section{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+.compare form .left{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.compare form .right{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.compare form .left select{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #f10606;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+}
+.compare form .right select{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #f10606;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+}
+.compare form .left select option{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #f10606;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background: #c7c6c5;
+    color: #000000;
+    font-weight: 600;
+}
+.compare form .right select option{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #f10606;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background: #c7c6c5;
+    color: #000000;
+    font-weight: 600;
+}
+.compare form button{
+    width: 1175px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #f10606;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+}
+.process-product{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+}
+.process-product .frist-product{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+     border: 2px solid #f10606;
+}
+.process-product .frist-product .process-card{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.process-product .frist-product .process-card .process-card-txt{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.process-product .frist-product .process-card .process-card-txt h3{
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+
+}
+.process-product .frist-product .process-card .process-card-txt p{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+}
+.process-product .frist-product .process-card a {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    background: #f19f06;
+    border-radius: 15px;
+}
+
+.wish-card{
+    margin-top: 40px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    border: 2px solid #f10606;
+}
+.wish-card table{
+    text-align: center;
+    width: 100%;
+}
+.wish-card table thead th{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: rgb(0, 0, 0);
+    background-color: #f1a20e;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.wish-card table tbody td{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: rgb(0, 0, 0);
+    
+}
+.wish-card table tbody td img{
+    width: 100px;
+    height: 100px;
+}
+.wish-card table tbody td a{
+    color: #10273a;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.wish-card table tbody td a:hover{
+    color: #ff0000;
+    text-decoration: none;
+}
+.wish-card table tbody td .fa-trash{
+    color: #ff0000;
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}

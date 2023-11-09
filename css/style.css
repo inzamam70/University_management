@@ -434,20 +434,15 @@
     margin: 0 5px;
     cursor: pointer;
 }
-.top-university-contentBx a{
+.top-university-contentBx h3{
     display: inline-block;
-    padding: 10px 20px;
-    background: #fff;
     border-radius: 4px;
-    margin-top: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    color: #111;
+    color: #fcfbfb;
     opacity: 0;
     transform: translateY(50px);
     transition: .5s;
 }
-.top-university-card:hover .top-university-contentBx a{
+.top-university-card:hover .top-university-contentBx h3{
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
@@ -578,6 +573,7 @@
     position: relative;
     background: #f3b91b;
     padding: 40px;
+    height: 100%;
 }
 .cv .right_side{
     position: relative;
@@ -988,6 +984,44 @@
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
+}
+.details-btn{
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.details-btn a{
+    width: 200px;
+    background: #ffd102;
+    padding: 15px;
+    border-radius: 15px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+    text-align: center;
+}
+.details-btn a:hover{
+    background: #ff0202;
+    color: #02afff;
+}
+.details-btn .wish-btn{
+    width: 200px;
+    background: #ffd102;
+    padding: 15px;
+    border-radius: 15px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+    text-align: center;
+    border: none;
+}
+.details-btn .wish-btn:hover{
+    background: #ff0202;
+    color: #02afff;
 }
 
 

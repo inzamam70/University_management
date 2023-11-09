@@ -43,38 +43,38 @@
    
     <div class="item-body">
     <div class="main-txt" style="padding:10px;margin-bottom:20px">
-          <h1><span>Engineering</span>University</h1>
+          <h1><span>U</span>niversity</h1>
         </div>
+        <section class="top-university">
+        <div class="top-university-container">
+            <?php
+                include_once 'config.php';
+                $category_id = $_GET['category_id'];
+                $sql = "SELECT * FROM top_university WHERE category_id = '$category_id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
 
-        <div class="item">
-            <div class="item-card">
-                <div class="item-imgbx">
-                    <img src="./images/uits.png" alt="">
-                </div>
-                <div class="item-contentbx">
-                    <h2>UITS</h2>
-                    <p>University of Information Technology and Sciences</p>
-                    <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
-                    </div>
+        <div class="top-university-card">
+            <div class="top-university-imgBx">
+                <img src="<?=$row['image']?>" alt="nike-air-shoe">
+            </div>
+
+            <div class="top-university-contentBx">
+
+                <h2><?=$row['name']?></h2>
+
+                <div class="top-university-size">
+                    <h3><?=$row['full_name']?></h3>
+                    
                 </div>
             </div>
 
-            <div class="item-card">
-                <div class="item-imgbx">
-                    <img src="./images/nsu.png" alt="">
-                </div>
-                <div class="item-contentbx">
-                    <h2>AIUB</h2>
-                    <p>American International University-Bangladesh</p>
-                    <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
+            <?php } ?>
+        </div>
+        </section>
+    
     </div>
  
 
@@ -98,3 +98,4 @@
 
 </body>
 </html>
+

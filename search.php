@@ -43,36 +43,49 @@
    
     <div class="item-body">
     <div class="main-txt" style="padding:10px;margin-bottom:20px">
-          <h1><span>Privet</span>University</h1>
+          <h1><span>U</span>niversity</h1>
         </div>
 
         <div class="item">
-            <div class="item-card">
-                <div class="item-imgbx">
-                    <img src="./images/uits.png" alt="">
-                </div>
-                <div class="item-contentbx">
-                    <h2>UITS</h2>
-                    <p>University of Information Technology and Sciences</p>
-                    <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
-                    </div>
-                </div>
-            </div>
+        <?php
+            include_once 'config.php';
 
-            <div class="item-card">
-                <div class="item-imgbx">
-                    <img src="./images/nsu.png" alt="">
-                </div>
-                <div class="item-contentbx">
-                    <h2>AIUB</h2>
-                    <p>American International University-Bangladesh</p>
-                    <div class="item-btn">
-                        <a href="view-details.php" class="btn">View Details</a>
-                    </div>
-                </div>
-            </div>
+            if(isset($_GET['search'])) {
+                $search = $_GET['search'];
 
+                $sql = "SELECT * FROM university WHERE short_title LIKE '%$search%'";
+                $result = mysqli_query($conn, $sql);
+
+                if($result) {
+                    if(mysqli_num_rows($result) > 0) {
+                        
+                        while($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                        <div class="item-card">
+                            <div class="item-imgbx">
+                                <img src="<?=$row['image']?>" alt="">
+                            </div>
+                            <div class="item-contentbx">
+                                <h2><?=$row['short_title']?></h2>
+                                <p><?=$row['full_title']?></p>
+                                <div class="item-btn">
+                                    <a href="view-details.php?id=<?=$row['id']?>" class="btn">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+
+            } else {
+            echo "<p>No results found for '$search'.</p>";
+            }
+            } else {
+            echo "<p>Database error: " . mysqli_error($conn) . "</p>";
+            }
+            }
+               ?>
+
+      
 
         </div>
     </div>
@@ -98,3 +111,6 @@
 
 </body>
 </html>
+
+
+

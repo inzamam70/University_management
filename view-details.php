@@ -25,12 +25,20 @@
 
     <div class="cv-body">
     <div class="cv">
-    <div class="left_side">
+        <?php 
+            include_once 'config.php';
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM university WHERE id = '$id'";
+            $result = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_assoc($result)){
+        ?>
+        
+        <div class="left_side">
         <div class="profiletext">
             <div class="imgbx">
-                <img src="images/uits.png" alt="">
+                <img src="<?=$row['image']?>" alt="">
             </div>
-            <h2>UITS<br><span>Web Developer</span></h2>
+            <h2><?=$row['short_title']?><br><span><?=$row['full_title']?></span></h2>
         </div>
 
         <div class="contact-info">
@@ -38,65 +46,84 @@
             <ul>
                 <li>
                     <span class="icon"><i class="fa-solid fa-phone"></i></span>
-                    <span class="text">+88 01865016322</span>
+                    <span class="text">+88 <?=$row['phone']?></span>
                 </li>
                 <li>
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <span class="text">70inzamam.sentinel@gmail.com</span>
+                    <span class="text"><?=$row['email']?></span>
                 </li>
                 <li>
                     <span class="icon"><i class="fa-solid fa-globe"></i></span>
-                    <span class="text">www.mywebsite.com</span>
-                </li>
-                <li>
-                    <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
-                    <span class="text">www.linkedin.com/Inzamam</span>
+                    <span class="text"><a href="<?=$row['web']?>">Web Link</a></span>
                 </li>
                 <li>
                     <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                    <span class="text">Badda,Dhaka,Bangladesh</span>
+                    <span class="text"><?=$row['location']?></span>
+                </li>
+            </ul>
+        </div>
+       
+        
+        <?php } ?>
+    
+
+        <div class="contact-info education">
+            <h3 class="title">Departments</h3>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM academic WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+                     
+
+                       
+                ?>
+            <ul>
+                <li>
+                    <a href="academic-details.php?
+                    academic_id=<?=$row['id']?>& 
+                    university_id=<?=$row['university_id']?>
+                    " style="text-decoration:none;font-size:20px;color:white;"><?=$row['name']?></a>
+                    
+                </li>
+            </ul>
+            <?php } ?>
+           
+            
+           
+        </div>
+        <?php 
+            include_once 'config.php';
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM university WHERE id = '$id'";
+            $result = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_assoc($result)){
+        
+        ?>
+        
+        <div class="contact-info education">
+            <h3 class="title">Ranking</h3>
+            <ul>
+                <li>
+                    <h5 class="heading"><?=$row['rating']?></h5>
+                </li>
+            </ul>
+        </div>
+        <div class="contact-info education">
+            <h3 class="title">Vice-Chancellor</h3>
+            <ul>
+                <li>
+                    <h5 class="heading"><?=$row['vc']?></h5>
                 </li>
             </ul>
         </div>
 
         <div class="contact-info education">
-            <h3 class="title">Education</h3>
+            <h3 class="title">Founder</h3>
             <ul>
                 <li>
-                    <h5>2019 - 2022</h5>
-                    <h4>Bachelor Degree in Computer Science</h4>
-                    <h4>University of Information Technology & Sciences</h4>
-                    <h4>CGPA - 3.83 Out of 4.00</h4>
-                </li>
-                <li>
-                    <h5>2015 - 2017</h5>
-                    <h4>Hsc</h4>
-                    <h4>R.K.B.K. Horishchandra Collegiate School</h4>
-                    <h4>GPA - 4.58 Out of 5.00</h4>
-                </li>
-                <li>
-                    <h5>2010 - 2015</h5>
-                    <h4>Ssc</h4>
-                    <h4>Khariati High School</h4>
-                    <h4>GPA - 4.61 Out of 5.00</h4>
-                </li>
-            </ul>
-        </div>
-
-        <div class="contact-info education">
-            <h3 class="title">Position</h3>
-            <ul>
-                <li>
-                    <h5 class="heading">Software Implementation</h5>
-                </li>
-            </ul>
-        </div>
-
-        <div class="contact-info education">
-            <h3 class="title">Salary</h3>
-            <ul>
-                <li>
-                    <h5 class="heading">10k dile alhamdulillah</h5>
+                    <h5 class="heading"><?=$row['founder']?></h5>
                 </li>
             </ul>
         </div>
@@ -104,148 +131,103 @@
     </div>
     <div class="right_side">
         <div class="about">
-            <h2 class="title2">Profile</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br><br> Exercitationem voluptate expedita magni cumque, aliquid ullam nam possimus alias cum numquam, veritatis molestiae at eum praesentium?</p>
+            <h2 class="title2">Description</h2>
+            <p><?=$row['description']?></p>
         </div>
 
+        <?php } ?>
+
         <div class="about">
-            <h2 class="title2">Basic Info</h2>
+            <h2 class="title2">Faculty Name</h2>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM faculty WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            
+            ?>
             <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Father Name</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Md Saidul Islam</h4>
+                <div class="year_company" style="width:100%;margin-left:25px;">
+                    <a  href="<?=$row['web']?>" style="color:;font-size: 25px;text-decoration:none;"><?= $row['name']?></a>
                 </div>
             </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Mother Name</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Lovely Begum</h4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Permanent Address</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Khariati,Assasuni,Satkhira</h4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Present Address</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Notun Bazer,Badda,Dhaka</h4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Nationality</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Bangladeshi</h4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Relegion</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Islam</h4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="year_company" style="width:50%;">
-                    <h5 style="color: black;font-size: 15px;">Marital Status</h5>
-                </div>
-                <div class="text" style="width: 50%;">
-                    <h4>Unmarid</h4>
-                </div>
-            </div>
+            <?php } ?>
+        
+
         </div>
-
+ 
         <div class="about">
-            <h2 class="title2">Experience</h2>
+            <h2 class="title2">Admission</h2>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM admission WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
             <div class="box">
-                <div class="year_company">
-                    <h5>2023 - Present</h5>
-                    <h5>Sentinel Technologies</h5>
-                </div>
-                <div class="text">
-                    <h4>Software Implementation</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aperiam distinctio eveniet placeat eius assumenda.</p>
-
+                <div class="year_company" style="width:100%;margin-left:25px;">
+                    <a  href="<?=$row['web']?>" style="color:;font-size: 25px;text-decoration:none;"><?= $row['name']?></a>
                 </div>
             </div>
-
-            <div class="box">
-                <div class="year_company">
-                    <h5>2023 - 2023</h5>
-                    <h5>Pondit</h5>
-                </div>
-                <div class="text">
-                    <h4>Trainee</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aperiam distinctio eveniet placeat eius assumenda.</p>  
-                </div>
-            </div>
+            <?php } ?>
         </div>
 
         <div class="about certificate">
-            <h2 class="title2">Certificate & Training</h2>
+            <h2 class="title2">Administration</h2>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM administrative WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
             <div class="box">
-                <div class="year_company">
-                    <h5>12 July 2023</h5>
-                    <h5>Pondit</h5>
-                </div>
-                <div class="text">
-                    <h4>Certificate Of Php With Laravel(Framework) </h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aperiam distinctio eveniet placeat eius assumenda.</p>  
+                <div class="year_company" style="width:100%;margin-left:25px;">
+                    <a  href="<?=$row['web']?>" style="color:;font-size: 25px;text-decoration:none;"><?= $row['name']?></a>
                 </div>
             </div>
-            <div class="box">
-                <div class="year_company">
-                    <h5>1 May 2023 - 12 July 2023</h5>
-                    <h5>Pondit</h5>
-                </div>
-                <div class="text">
-                    <h4>Training In Php With Laravel(Framework) </h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aperiam distinctio eveniet placeat eius assumenda.</p>  
-                </div>
-            </div>
+            <?php } ?>
+
         </div>
 
-        <div class="about skill">
-            <h2 class="title2">Professional Skills</h2>
-            <div class="box">
-                <h4>HTML</h4>
-                <div class="percent">
-                    <div style="width: 95%;"></div>
-                </div>
-            </div>
-            <div class="box">
-                <h4>CSS</h4>
-                <div class="percent">
-                    <div style="width: 80%;"></div>
-                </div>
-            </div>
-            <div class="box">
-                <h4>PHP</h4>
-                <div class="percent">
-                    <div style="width: 90%;"></div>
-                </div>
-            </div>
-            <div class="box">
-                <h4>Laravel</h4>
-                <div class="percent">
-                    <div style="width: 85%;"></div>
-                </div>
-            </div>
-        </div>
 
+
+                    
+        <?php 
+        include_once 'config.php';
+        if(isset($_POST['submit'])){
+            $name = $_POST['name'];
+            $full_name = $_POST['full_name'];
+            $image = $_POST['image'];
+            $sql = "INSERT INTO wish (name,full_name,image) VALUES ('$name','$full_name','$image')";
+            $result = mysqli_query($conn,$sql);
+            if($result){
+                echo "<script>alert('Wish Added Successfully')</script>";
+            }else{
+                echo "<script>alert('Wish Added Failed')</script>";
+            }
+        }
+        ?>
+
+        <div class="details-btn">
+            <form action="" method="post">
+                <?php
+                 $sql = "SELECT * FROM university WHERE id = '$id'";
+                    $result = mysqli_query($conn,$sql);
+                    while($row = mysqli_fetch_assoc($result)){
+                ?>
+                <input type="hidden" name="name" value="<?= $row['short_title']?>">
+                <input type="hidden" name="full_name" value="<?= $row['full_title']?>">
+                <input type="hidden" name="image" value="<?= $row['image']?>">
+                <input type="submit" name="submit" value="Wish" class="wish-btn">
+            </form>
+            <?php } ?>
+            <a href="compare.php">Compare</a>
+        </div>
+       
+        
     </div>
   </div>
     </div>

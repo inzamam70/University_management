@@ -47,11 +47,82 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="best-dpt-unis.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                        </span>
+                        <span class="title">Best Dept-Uni</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="universities.php">
                         <span class="icon">
                         <i class="fa-solid fa-user-graduate"></i>
                         </span>
                         <span class="title">University</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="academics.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-bookmark"></i>
+                        </span>
+                        <span class="title">Departments</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="academic_details.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-bookmark"></i>
+                        </span>
+                        <span class="title">Academics Details</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="faculties.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                        </span>
+                        <span class="title">Faculties</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="faculty-members.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-users"></i>
+                        </span>
+                        <span class="title">Faculty Members</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admissions.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-ticket"></i>
+                        </span>
+                        <span class="title">Admissions</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tutions.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-clock"></i>
+                        </span>
+                        <span class="title">Tution fees & Year</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="administrations.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <span class="title">Administrations</span>
                     </a>
                 </li>
 
@@ -83,7 +154,7 @@
 
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="navs.php">
                         <span class="icon">
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                         </span>

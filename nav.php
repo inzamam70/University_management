@@ -18,10 +18,14 @@
                   Universites
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="public.php">Public University</a></li>
-                  <li><a class="dropdown-item" href="privet.php">Privet University</a></li>
-                  <li><a class="dropdown-item" href="engineering.php">Engineering</a></li>
-                  <li><a class="dropdown-item" href="medical.php">Medical</a></li>
+                  <?php 
+                   include_once 'config.php';
+                   $sql = "SELECT * FROM nav";
+                   $result = mysqli_query($conn,$sql);
+                   while($row = mysqli_fetch_assoc($result)){
+                    ?>
+                  <li><a class="dropdown-item" href="university.php?nav_id=<?=$row['id']?>"><?= $row['name']?></a></li>
+                  <?php } ?>
                 </ul>
               </li>
 
@@ -35,32 +39,37 @@
                 <a class="nav-link" href="faq.php">Faqs</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="compare.php">Compare</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="login.php">LogIn</a>
               </li>
               
              
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="text" placeholder="Search">
-              <button class="btn btn-primary" type="button">Search</button>
-            </form>
+
+     
+
+          <form class="d-flex" method="get" action="search.php">
+            <input class="form-control me-2" type="text" placeholder="Search" name="search">
+            <button class="btn btn-primary" type="submit" name="submit">Search</button>
+           </form>
 
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href=""><i class="fa-solid fa-heart"></i></a>
+                <?php 
+                include_once 'config.php';
+                $sql = "SELECT * FROM wish";
+                $result = mysqli_query($conn,$sql);
+                $count = mysqli_num_rows($result);
+                
+                ?>
+                <a class="nav-link" href="wish.php"><i class="fa-solid fa-heart"></i><span><sup><?=$count?></sup></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href=""><i class="fa-solid fa-bell"></i></a>
               </li>
-              <?php 
-               include_once 'config.php';
-                $sql = "SELECT * FROM contact";
-                $result = mysqli_query($conn,$sql);
-                $count = mysqli_num_rows($result);
-              ?>
-              <li class="nav-item">
-                <a class="nav-link" href="show-sms.php"><i class="fa-solid fa-envelope"></i><span><sup><?=$count?></sup></span></a>
-              </li>
+         
               <li class="nav-item">
                
                 <a class="nav-link" href="logout.php"><i class="fa-solid fa-power-off"></i> </a>
