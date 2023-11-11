@@ -1,23 +1,25 @@
 
+
 <?php
 include_once 'config.php';
 if (isset($_POST['submit'])) {
-  $university1 = $_POST['university1'];
-  $university2 = $_POST['university2'];
-if ($university1 == $university2) {
-  echo "<script>alert('Please select two different universities')</script>";
-  echo "<script>window.open('compare.php','_self')</script>";
+    $dept1 = $_POST['dept1'];
+    $dept2 = $_POST['dept2'];
+if ($dept1 == $dept2) {
+    echo "<script>alert('Please select two different departments')</script>";
+    echo "<script>window.open('compare.php','_self')</script>";
 }
 else {
-  $sql = "SELECT * FROM university WHERE id = '$university1'";
-  $result = mysqli_query($conn,$sql);
-  $row = mysqli_fetch_assoc($result);
-    $university1_short_title = $row['short_title'];
+    $sql = "SELECT * FROM academic WHERE id = '$dept1'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+      $dept1_short_title = $row['name'];
 }
-$sql = "SELECT * FROM university WHERE id = '$university2'";
+$sql = "SELECT * FROM academic WHERE id = '$dept2'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
-    $university2_short_title = $row['short_title'];
+    $dept2_short_title = $row['name'];
+
 
 
 }
@@ -68,53 +70,68 @@ $row = mysqli_fetch_assoc($result);
             <div class="container">
 
                 <div class="main-txt">
-                    <h1>U<span>niversity</span></h1>
+                    <h1>D<span>peartment</span></h1>
                 </div>
 
                 <div class="process-product">
                     <div class="frist-product">
                         <?php
-                            $sql = "SELECT * FROM university WHERE id = '$university1'";
+                            $sql = "SELECT * FROM academic WHERE id = '$dept1'";
                             $result = mysqli_query($conn,$sql);
                             while($row = mysqli_fetch_assoc($result)){
                         ?>
                         <div class="process-card">
-                            <div class="process-card-img">
-                                <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;">
-                            </div>
                             <div class="process-card-txt">
-                                <h3><?=$university1_short_title?></h3>
-                                <p> <?= $row['full_title']?></p>
-                                <p>Ranking: <?= $row['rating']?></p>
-                                <p>Location: <?= $row['location']?></p>
-                                <p>Phone: <?= $row['phone']?></p>
-                                <p>Email: <?= $row['email']?></p>
-                                <p>Website: <?= $row['web']?></p>
+                                <h3><?=$dept1_short_title?></h3>
+                               
+                                <?php 
+                                $sql = "SELECT * FROM subject WHERE academic_id = '$dept1'";
+                                $result = mysqli_query($conn,$sql);
+                                while($row = mysqli_fetch_assoc($result)){
+
+                                ?>
+                                <h1><?= $row['name']?></h1>
+                                <div class="process-card-img">
+                                    <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;margin-bottom:10px;">
+                                </div>
+                                <p><?=$row['department_head']?></p>
+                                <p>Total Cost : <?=$row['cost']?>/-</p>
+                                <p>Duration : <?=$row['year']?></p>
+                                <p>TOtal Cerdist : <?= $row['credit']?></p>
+                                <?php } ?>
                             </div>
-                            <a href="view-details.php?id=<?=$row['id']?>"> Show Details</a>
                         </div>
                     </div>
                     <?php } ?>
                     <div class="frist-product">
                     <?php 
-                        $sql = "SELECT * FROM university WHERE id = '$university2'";
+                        $sql = "SELECT * FROM academic WHERE id = '$dept2'";
                         $result = mysqli_query($conn,$sql);
                         while($row = mysqli_fetch_assoc($result)){
                     ?>
                         <div class="process-card">
-                            <div class="process-card-img">
-                                <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;">
-                            </div>
+                            
                             <div class="process-card-txt">
-                                <h3><?=$university2_short_title?></h3>
-                                <p><?= $row['full_title']?></p>
-                                <p>Ranking: <?= $row['rating']?></p>
-                                <p>Location: <?= $row['location']?></p>
-                                <p>Phone: <?= $row['phone']?></p>
-                                <p>Email: <?= $row['email']?></p>
-                                <p>Website: <?= $row['web']?></p>
+                                <h3><?=$dept2_short_title?></h3>
+
+                               
+                                
+                                <?php 
+                                $sql = "SELECT * FROM subject WHERE academic_id = '$dept2'";
+                                $result = mysqli_query($conn,$sql);
+                                while($row = mysqli_fetch_assoc($result)){
+
+                                ?>
+                                <h1><?= $row['name']?></h1>
+                                <div class="process-card-img">
+                                <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;margin-bottom:10px;">
                             </div>
-                            <a href="view-details.php?id=<?=$row['id']?>">Show Details</a>
+                                <p><?=$row['department_head']?></p>
+                                <p>Total Cost : <?=$row['cost']?>/-</p>
+                                <p>Duration : <?=$row['year']?></p>
+                                <p>TOtal Cerdist : <?= $row['credit']?></p>
+                                <?php } ?>
+                            </div>
                         </div>
                     <?php } ?>
                     </div>

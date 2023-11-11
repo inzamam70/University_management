@@ -193,6 +193,40 @@
         </div>
 
 
+        <div class="about certificate">
+            <h2 class="title2">Review</h2>
+            <?php 
+                include_once 'config.php';
+                if(isset($_POST['submit-review'])){
+                    $review = $_POST['review'];
+                    $sql = "INSERT INTO review (review) VALUES ('$review')";
+                    $result = mysqli_query($conn,$sql);
+                    if($result){
+                        echo "<script>alert('Review Added Successfully')</script>";
+                    }else{
+                        echo "<script>alert('Review Added Failed')</script>";
+                    }
+                }
+            ?>
+            <div class="box">
+                <div class="year_company" style="width:100%;margin-left:25px;display:flex;flex-direction:column;">
+                    <form action="" method="post">
+                        <label for="review">Your Review Here</label>
+                   
+                        <textarea name="review" id="" cols="30" rows="10"  style="width:100%;height:100px;"></textarea>
+                        <input type="submit" name="submit-review" value="Submit" class="input-btn">
+                        
+                    </form>
+                    <a href="review.php" class="" style="text-decoration:none;background:red;padding:10px;color:white;width:200px;margin-top:20px;border-radius:10px;text-align:center;">See All Review</a>
+                </div>
+                <div class="details-btn">
+                    
+                </div>
+            </div>
+            
+
+        </div>
+
 
                     
         <?php 

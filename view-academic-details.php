@@ -75,6 +75,10 @@ session_start();
                 ?>
                 
                <div class="view-category">
+                <h1>University Name</h1>
+                <br>
+                <h2><?= $row['name']?></h2>
+                <br>
                 <h1>Department Head</h1>
                 <br>
                 <img src="<?= $row['image']?>" alt="" style="width:250px; height:250px;">
@@ -88,6 +92,10 @@ session_start();
                 <h1>Total Years</h1>
                 <br>
                 <p>Total : <?= $row['year']?> years</p>
+                <br>
+                <h1>Total Credits</h1>
+                <br>
+                <p>Total : <?= $row['credit']?> credits</p>
                 <?php } } ?>
                 
 

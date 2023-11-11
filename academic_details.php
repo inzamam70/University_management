@@ -62,10 +62,12 @@
                     <tr>
 
                         <th>S.No</th>
+                        <th>UNI Name</th>
                         <th>Dept Head </th>
                         <th>Image</th>
                         <th>Tution Fees</th>
                         <th>Total Years</th>
+                        <th>Total Credits</th>
                         <th>Action</th>
 
                     </tr>
@@ -80,10 +82,12 @@
                     <tr>
 
                         <td><?= $id++ ?></td>
+                        <td><?= $row['name']?></td>
                         <td><?= $row['department_head']?></td>
                         <td><img src="<?= $row['image']?>" alt="" style="width:100px;height:100px;"></td>
                         <td><?= $row['cost']?></td>
                         <td><?= $row['year']?></td>
+                        <td><?= $row['credit']?></td>
                         <td style="margin-left :20px;">
                             <div class="action-btn">
                              <a href="view-academic-details.php?id=<?= $row['id'] ?>" style="background:green;">View</a>

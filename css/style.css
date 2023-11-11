@@ -1023,7 +1023,43 @@
     background: #ff0202;
     color: #02afff;
 }
+.top-details-btn{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    
+}
+.top-details-btn a{
+    width: 200px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+    text-align: center;
+}
+.top-details-btn a:hover{
+    background: #ff0202;
+    color: #02afff;
+}
 
-
-
+.year_company .input-btn{
+    width: 200px;
+    background: #f80505;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fafafa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+    text-align: center;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

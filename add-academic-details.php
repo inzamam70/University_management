@@ -12,9 +12,11 @@ session_start();
 if(isset($_POST['submit'])){
     $university_id = $_POST['university_id'];
     $academic_id = $_POST['academic_id'];
+    $name = $_POST['name'];
     $department_head = $_POST['department_head'];
     $cost = $_POST['cost'];
     $year = $_POST['year'];
+    $credit = $_POST['credit'];
     $targetDir = "uploads/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -24,7 +26,7 @@ if(isset($_POST['submit'])){
     $img_name = $_FILES['image']['name'];
     $path = "uploads/".$img_name;
     move_uploaded_file($img_loc,$path);
-    $sql = "INSERT INTO `subject` (university_id, academic_id, department_head, image, cost,year) VALUES ('$university_id', '$academic_id', '$department_head', '$path', '$cost','$year')";
+    $sql = "INSERT INTO `subject` (university_id, academic_id,name, department_head, image, cost,year,credit) VALUES ('$university_id', '$academic_id','$name', '$department_head', '$path', '$cost','$year','$credit')";
     $result = mysqli_query($conn, $sql);
 
     if($result){
@@ -126,6 +128,10 @@ if(isset($_POST['submit'])){
                         </select>
                     </div>
 
+                    <div class="input-group">
+                            <label for="name">University Name</label>
+                            <input type="text" name="name" placeholder="Enter name">
+                        </div>
                
                         <div class="input-group">
                             <label for="department_head">Dept Head Name</label>
@@ -145,6 +151,11 @@ if(isset($_POST['submit'])){
                         <div class="input-group">
                             <label for="year">Total Year</label>
                             <input type="text" name="year" placeholder="Enter total yera">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="credit">Total Credit</label>
+                            <input type="text" name="credit" placeholder="Enter total credit">
                         </div>
 
                         <div class="input-group">

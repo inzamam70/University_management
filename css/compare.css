@@ -203,3 +203,20 @@
     font-size: 1.3rem;
     margin-right: 0.5rem;
 }
+.rivew-card{
+    margin-top: 40px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    border: 2px solid #f10606;
+    
+}
+.rivew-card .r-card{
+   
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f1a20e;
+    border: 1px solid #000000;
+}

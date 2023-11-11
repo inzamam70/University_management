@@ -10,9 +10,11 @@ session_start();
  
 $id = $_GET['id'];
 if(isset($_POST['submit'])){
+    $name = $_POST['name'];
     $department_head = $_POST['department_head'];
     $cost = $_POST['cost'];
     $year = $_POST['year'];
+    $credit = $_POST['credit'];
     $targetDir = "uploads/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -22,7 +24,7 @@ if(isset($_POST['submit'])){
     $img_name = $_FILES['image']['name'];
     $path = "uploads/" . $img_name;
     move_uploaded_file($img_loc, $path);
-    $sql = "UPDATE subject SET department_head = '$department_head', cost = '$cost', image = '$path',year='$year' WHERE id = '$id'";
+    $sql = "UPDATE subject SET name= '$name', department_head = '$department_head', cost = '$cost', image = '$path',year='$year',credit='$credit' WHERE id = '$id'";
     
     $result = mysqli_query($conn, $sql);
     if ($result) {
@@ -96,6 +98,21 @@ if(isset($_POST['submit'])){
 
                 <div class="form">
                     <form action="" method="post" enctype="multipart/form-data">
+                    <div class="input-group">
+                            <label for="name">University Name</label>
+                            <input type="text" name="name" value="
+                            <?php 
+                            $sql = "SELECT * FROM subject WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['name'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
+
                         <div class="input-group">
                             <label for="department_head">Department Head Name</label>
                             <input type="text" name="department_head" value="
@@ -153,6 +170,21 @@ if(isset($_POST['submit'])){
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo $row['year'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="credit">Total Credit</label>
+                            <input type="text" name="credit" value= "
+                            <?php 
+                            $sql = "SELECT * FROM subject WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['credit'];
                                 }
                             }
                             ?>

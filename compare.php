@@ -83,6 +83,46 @@
                 </form>
             </div>
             
+            <div class="main-txt">
+              <h1>Compare <span>Department</span></h1>
+            </div>
+            
+            <div class="compare">
+                <form action="process2.php" method="post">
+                    <div class="compare-section">
+                        <div class="left">
+                            <select name="dept1" id="dept1">
+                            <option value="">Select Department</option>
+                            <?php 
+                            include_once 'config.php';
+                                $sql = "SELECT * FROM academic";
+                                $result = mysqli_query($conn,$sql);
+                                while($row = mysqli_fetch_assoc($result)){
+                            ?>
+                            <option value="<?=$row['id']?>"><?=$row['name']?> </option>
+                                    
+                            <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="right">
+                            <select name="dept2" id="dept2">
+                            <option value="">Select Department</option>
+                            <?php 
+                            include_once 'config.php';
+                                $sql = "SELECT * FROM academic";
+                                $result = mysqli_query($conn,$sql);
+                                while($row = mysqli_fetch_assoc($result)){
+                                    
+                            ?>
+                            <option value="<?=$row['id']?>"><?=$row['name']?> </option>
+                            <?php } ?>
+                            </select> 
+                        </div>
+                    </div>
+                    <button type="submit" name="submit">Compare</button>
+                </form>
+            </div>
 
           </div>
       </section>
