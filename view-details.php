@@ -198,8 +198,10 @@
             <?php 
                 include_once 'config.php';
                 if(isset($_POST['submit-review'])){
+                    $university_id = $_POST['university_id'];
+                    $name = $_POST['name'];
                     $review = $_POST['review'];
-                    $sql = "INSERT INTO review (review) VALUES ('$review')";
+                    $sql = "INSERT INTO review (university_id,name,review) VALUES ('$university_id','$name','$review')";
                     $result = mysqli_query($conn,$sql);
                     if($result){
                         echo "<script>alert('Review Added Successfully')</script>";
@@ -210,14 +212,44 @@
             ?>
             <div class="box">
                 <div class="year_company" style="width:100%;margin-left:25px;display:flex;flex-direction:column;">
-                    <form action="" method="post">
-                        <label for="review">Your Review Here</label>
-                   
-                        <textarea name="review" id="" cols="30" rows="10"  style="width:100%;height:100px;"></textarea>
-                        <input type="submit" name="submit-review" value="Submit" class="input-btn">
+                    <form action="" class="review" method="post">
+                        <?php 
+                         include_once 'config.php';
+                            $id = $_GET['id'];
+                            $sql = "SELECT * FROM university WHERE id = '$id'";
+                            $result = mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_assoc($result)){
+                        ?>
+                        <input type="hidden" name="university_id" value="<?=$row['id']?>">
+                        <?php } ?>
+                        <input type="text" name="name" id="" placeholder="Enter Your Name" class="input-field">
+                        <textarea name="review" id="" cols="30" rows="10"  style="width:100%;height:100px;" placeholder="Enter your review"></textarea>
+                        <input type="submit" name="submit-review" value="Submit" class="btn">
                         
                     </form>
-                    <a href="review.php" class="" style="text-decoration:none;background:red;padding:10px;color:white;width:200px;margin-top:20px;border-radius:10px;text-align:center;">See All Review</a>
+                    
+                    <div class="review-heading">
+                    <h1>Reviews</h1>
+                </div>
+                <?php 
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM review WHERE university_id = $id";
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="review-card">
+                            <div class="review-card-text">
+                                <h1><?= $row['name']?></h1>
+                                <p><?= $row['review']?></p>
+                            </div>
+                        </div>
+                    <?php }
+                } else {
+                    echo "<h1>No Review Found</h1>";
+                }
+
+                ?>
                 </div>
                 <div class="details-btn">
                     
