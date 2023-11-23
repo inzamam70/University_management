@@ -12,21 +12,28 @@ session_start();
  
 if(isset($_POST['submit'])){
     $university_id = $_POST['university_id'];
-    $name = $_POST['cost'];
-    $web = $_POST['year'];
-    $sql = "INSERT INTO tution (university_id, name,web) VALUES ('$university_id', '$name','$web')";
 
+    $targetDir = "uploads/";
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType =  strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
+    $image = $_FILES['image'];
+    $img_loc =  $_FILES['image']['tmp_name'];
+    $img_name = $_FILES['image']['name'];
+    $path = "uploads/".$img_name;
+    move_uploaded_file($img_loc,$path);
+    $sql = "INSERT INTO `tution` (university_id, image) VALUES ('$university_id', '$path')";
     $result = mysqli_query($conn, $sql);
 
     if($result){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> faculty Added Successfully.
+        <strong>Success!</strong> Tution Added Successfully.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-        header("Location: faculties.php");
+        header("Location: tutions.php");
     }else{
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> faculty Not Added.
+        <strong>Error!</strong> Tution Not Added.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }      
@@ -84,7 +91,7 @@ if(isset($_POST['submit'])){
 
             <div class="table">
                 <div class="text">
-                    <h1>Add Faculty Name</h1>
+                    <h1>Add Tution Fees</h1>
                 </div>
 
                 <div class="form">
@@ -102,18 +109,14 @@ if(isset($_POST['submit'])){
                             <?php } ?>
                         </select>
                         </div>
-               
+
                         <div class="input-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Enter  Name">
-                        </div>
-                        <div class="input-group">
-                            <label for="web">Web Link</label>
-                            <input type="text" name="web" placeholder="Enter Website">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" accept="image/*">
                         </div>
 
                         <div class="input-group">
-                            <button type="submit" name="submit">Add Faculty</button>
+                            <button type="submit" name="submit">Add Tution</button>
                         </div>
 
                     </form>

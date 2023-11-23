@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
             header('location:admin.php');
         }else{
             $_SESSION['user_name'] = $row['name'];
-            header('location:index.php');
+            header('location:wish.php');
         }
     }else{
         $error[] = 'invalid email or password!';
@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
 
 
       <div class="login-box">
-              <div class="main-text">
+              <div class="main-text-l">
                 <h1><span>L</span>og In</h1>
               </div>
               <div class="box-item">

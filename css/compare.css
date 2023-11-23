@@ -110,10 +110,11 @@
 }
 .process-product .frist-product{
     width: 50%;
-    height: 100%;
+    height: 600px;
     padding: 20px;
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-     border: 2px solid #f10606;
+    box-shadow: 2px 2px 5px 0px rgb(250, 133, 0);
+     border: 2px solid #ff0000;
+     background: #979595;
 }
 .process-product .frist-product .process-card{
     width: 100%;
@@ -136,15 +137,26 @@
 .process-product .frist-product .process-card .process-card-txt h3{
     font-size: 28px;
     font-weight: 600;
-    color: #000;
+    color: #0509ff;
     margin-bottom: 10px;
 
+}
+.process-card-txt h1{
+    color: #f10606;
+    font-weight: 600;
 }
 .process-product .frist-product .process-card .process-card-txt p{
     font-size: 16px;
     font-weight: 600;
     color: #000;
     margin-bottom: 10px;
+    background: #ffffff;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 .process-product .frist-product .process-card a {
     width: 100%;

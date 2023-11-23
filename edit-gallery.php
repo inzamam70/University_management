@@ -19,14 +19,14 @@ if(isset($_POST['submit'])){
     $img_name = $_FILES['image']['name'];
     $path = "uploads/" . $img_name;
     move_uploaded_file($img_loc, $path);
-    $sql = "UPDATE gallery SET name = image = '$path' WHERE id = '$id'";
+    $sql = "UPDATE gallery SET  image = '$path' WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Success!</strong> Gellery Updated Successfully.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
-      header("Location: categories.php");
+      header("Location: gallaries.php");
     } else {
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Error!</strong> Gallery Not Updated.
@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
 
             <div class="table">
                 <div class="text">
-                    <h1>Add Category</h1>
+                    <h1>Edit Gallary</h1>
                 </div>
 
                 <div class="form">
@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
                             <label for="image">Image</label>
                             <input type="file" name="image" accept="image/*" value="
                             <?php 
-                            $sql = "SELECT * FROM categories WHERE id = '$id'";
+                            $sql = "SELECT * FROM gallery WHERE id = '$id'";
                             $result = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {

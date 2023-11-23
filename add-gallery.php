@@ -85,7 +85,7 @@ if(isset($_POST['submit'])){
 
             <div class="table">
                 <div class="text">
-                    <h1>Add Category</h1>
+                    <h1>Add Gallary</h1>
                 </div>
 
                 <div class="form">

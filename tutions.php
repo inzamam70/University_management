@@ -53,9 +53,9 @@
             </div>
 
             <div class="table">
-                <h1>Tution Fees & Totl Years</h1>
+                <h1>Tution Fees </h1>
                 <div class="btn">
-                    <a href="add-tution.php">Add Tution fee & Year</a>
+                    <a href="add-tution.php">Add Tution fee </a>
                 </div>
             <table>
 
@@ -63,7 +63,6 @@
 
                         <th>S.No</th>
                         <th>Tutin Fees</th>
-                        <th>Total Years</th>
                         <th>Action</th>
 
                     </tr>
@@ -78,13 +77,12 @@
                     <tr>
 
                         <td><?= $id++ ?></td>
-                        <td><?= $row['cost']?></td>
-                        <td><?= $row['year']?></td>
+                        <td><img src="<?= $row['image']?>" alt="" style="width:100px;height:100px"></td>
                         <td style="margin-left :20px;">
                             <div class="action-btn">
-                             <a href="view-faculty.php?id=<?= $row['id'] ?>" style="background:green;">View</a>
-                             <a href="edit-faculty.php?id=<?= $row['id'] ?>" style="background:blue;">Edit</a>
-                             <a href="delete-faculty.php?id=<?= $row['id'] ?>" style="background:red;">Delete</a>  
+                             <a href="view-tution.php?id=<?= $row['id'] ?>" style="background:green;">View</a>
+                             <a href="edit-tution.php?id=<?= $row['id'] ?>" style="background:blue;">Edit</a>
+                             <a href="delete-tution.php?id=<?= $row['id'] ?>" style="background:red;">Delete</a>  
                             </div>
                                   
                             

@@ -91,13 +91,12 @@ $row = mysqli_fetch_assoc($result);
 
                                 ?>
                                 <h1><?= $row['name']?></h1>
-                                <div class="process-card-img">
-                                    <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;margin-bottom:10px;">
-                                </div>
-                                <p><?=$row['department_head']?></p>
                                 <p>Total Cost : <?=$row['cost']?>/-</p>
                                 <p>Duration : <?=$row['year']?></p>
-                                <p>TOtal Cerdist : <?= $row['credit']?></p>
+                                <p>TOtal Cerdit : <?= $row['credit']?></p>
+                                <p>Deadline : <?= $row['deadline']?></p>
+                                <p>Class Start : <?= $row['start']?></p>
+                                <p>Total Addmission Fee : <?= $row['addmission_fee']?>/-</p>
                                 <?php } ?>
                             </div>
                         </div>
@@ -123,13 +122,12 @@ $row = mysqli_fetch_assoc($result);
 
                                 ?>
                                 <h1><?= $row['name']?></h1>
-                                <div class="process-card-img">
-                                <img src="<?= $row['image']?>" alt="" style="width:250px;height:250px;margin-bottom:10px;">
-                            </div>
-                                <p><?=$row['department_head']?></p>
                                 <p>Total Cost : <?=$row['cost']?>/-</p>
                                 <p>Duration : <?=$row['year']?></p>
-                                <p>TOtal Cerdist : <?= $row['credit']?></p>
+                                <p>TOtal Cerdit : <?= $row['credit']?></p>
+                                <p>Deadline : <?= $row['deadline']?></p>
+                                <p>Class Start : <?= $row['start']?></p>
+                                <p>Total Addmission Fee : <?= $row['addmission_fee']?>/-</p>
                                 <?php } ?>
                             </div>
                         </div>
@@ -164,9 +162,3 @@ $row = mysqli_fetch_assoc($result);
 
 </body>
 </html>
-
-
-
-
-
-

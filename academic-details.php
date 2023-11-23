@@ -67,6 +67,18 @@
                     $result = mysqli_query($conn,$sql);
                     while($row = mysqli_fetch_assoc($result)){
                 ?>
+                    <div class="description">
+                        <h2>Description</h2>
+                        <p><?=$row['description']?></p>
+                    </div>
+
+                    <div class="a-button">
+                        <a href="view-undergaduate.php?academic_id=<?=$row['id']?>& university_id=<?=$row['university_id']?>">Undergraduate Programs</a>
+                        <a href="view-graduate.php?academic_id=<?=$row['id']?>& university_id=<?=$row['university_id']?>">Graduate Programs</a>
+                        <a href="view-catalog.php?academic_id=<?=$row['id']?>& university_id=<?=$row['university_id']?>">Course Catalog</a>
+                        <a href="view-achivment.php?academic_id=<?=$row['id']?>& university_id=<?=$row['university_id']?>">Achievments</a>
+                        <a href="view-activities.php?academic_id=<?=$row['id']?>& university_id=<?=$row['university_id']?>">Academic Activities</a>
+                    </div>
 
                     <div class="fees">
                         <h2>Tution Fees</h2>
@@ -114,6 +126,97 @@
                         </div>
                     
                     </div>
+
+                    <div class="teacher-box">
+                        <h2>Successful Alumni</h2>
+                        <div class="teacher-details">
+                            <?php 
+                            include_once 'config.php';
+                            $academic_id = $_GET['academic_id'];
+                            $university_id = $_GET['university_id'];
+                            $sql = "SELECT * FROM `alumni` WHERE academic_id = '$academic_id' AND university_id = '$university_id'";
+                            $result = mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_assoc($result)){
+
+                            ?>
+                            <div class="teacher">
+                               
+                                    <img src="<?= $row['image']?>" alt="">
+                                
+                                <div class="teacher-details-con">
+                                    <h3><?= $row['name']?></h3>
+                                    <p><?= $row['designation']?></p>
+                                    <p><?= $row['post']?></p>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            
+                        </div>
+                    
+                    </div>
+
+                    <div class="about certificate">
+            <h2 class="" style="text-align:center;">Review</h2>
+            <?php 
+                include_once 'config.php';
+                if(isset($_POST['submit-review'])){
+                    $academic_id = $_POST['academic_id'];
+                    $name = $_POST['name'];
+                    $dept = $_POST['dept'];
+                    $review = $_POST['review'];
+                    $sql = "INSERT INTO `sub_review`(`academic_id`, `name`,`dept`, `review`) VALUES ('$academic_id','$name','$dept','$review')";
+                    $result = mysqli_query($conn,$sql);
+                    if($result){
+                        echo "<script>alert('Review Added Successfully')</script>";
+                    }else{
+                        echo "<script>alert('Review Added Failed')</script>";
+                    }
+                }
+            ?>
+            <div class="box">
+                <div class="year_company" style="width:100%;margin-left:25px;display:flex;flex-direction:column;">
+                    <form action="" class="review" method="post">
+
+                        <input type="hidden" name="academic_id" value="<?= $_GET['academic_id']?>">
+                        <input type="text" name="name" id="" placeholder="Enter Your Name " class="input-field">
+                        <input type="text" name="dept" placeholder="Enter your dept & batch" class="input-field">
+                        <textarea name="review" id="" cols="30" rows="10"  style="width:100%;height:100px;" placeholder="Enter your review"></textarea>
+                        <input type="submit" name="submit-review" value="Submit" class="btn">
+                        
+                    </form>
+                    
+                    <div class="review-heading">
+                    <h1>Reviews</h1>
+                </div>
+                <?php 
+                include_once 'config.php';
+                $academic_id = $_GET['academic_id'];
+                $sql = "SELECT * FROM `sub_review` WHERE academic_id = '$academic_id'";
+                $result = mysqli_query($conn,$sql);
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){?>
+
+                        <div class="review-card">
+                            <div class="review-card-text">
+                                <h1><?= $row['name']?></h1>
+                                <h3><?= $row['dept']?></h3>
+                                <p><?= $row['review']?></p>
+                            </div>
+                        </div>
+                    <?php }
+                } else {
+                    echo "<h1>No Review Found</h1>";
+                }
+
+                ?>
+                </div>
+                <div class="details-btn">
+                    
+                </div>
+            </div>
+            
+
+        </div>
             <!-- </div> -->
         </div>
     </div>

@@ -15,6 +15,10 @@ if(isset($_POST['submit'])){
     $cost = $_POST['cost'];
     $year = $_POST['year'];
     $credit = $_POST['credit'];
+    $description = $_POST['description'];
+    $deadline = $_POST['deadline'];
+    $start = $_POST['start'];
+    $addmission_fee = $_POST['addmission_fee'];
     $targetDir = "uploads/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -24,8 +28,7 @@ if(isset($_POST['submit'])){
     $img_name = $_FILES['image']['name'];
     $path = "uploads/" . $img_name;
     move_uploaded_file($img_loc, $path);
-    $sql = "UPDATE subject SET name= '$name', department_head = '$department_head', cost = '$cost', image = '$path',year='$year',credit='$credit' WHERE id = '$id'";
-    
+    $sql = "UPDATE `subject` SET name = '$name', department_head = '$department_head', image = '$path', cost = '$cost', year = '$year', credit = '$credit', description = '$description', deadline = '$deadline', start = '$start', addmission_fee = '$addmission_fee' WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -114,6 +117,21 @@ if(isset($_POST['submit'])){
                         </div>
 
                         <div class="input-group">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" value="
+                            <?php 
+                            $sql = "SELECT * FROM subject WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['description'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
+
+                        <div class="input-group">
                             <label for="department_head">Department Head Name</label>
                             <input type="text" name="department_head" value="
                             <?php 
@@ -190,6 +208,52 @@ if(isset($_POST['submit'])){
                             ?>
                             ">
                         </div>
+
+                        <div class="input-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="text" name="deadline" value= "
+                            <?php 
+                            $sql = "SELECT * FROM subject WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['deadline'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="start">Class start</label>
+                            <input type="text" name="start" value= "
+                            <?php 
+                            $sql = "SELECT * FROM subject WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['start'];
+                                }
+                            }
+                            ?>
+                            ">
+
+                        </div>
+
+                            <div class="input-group">
+                                <label for="addmission_fee">Total addmission fee</label>
+                                <input type="text" name="addmission_fee" value= "
+                                <?php 
+                                $sql = "SELECT * FROM subject WHERE id = '$id'";
+                                $result = mysqli_query($conn, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo $row['addmission_fee'];
+                                    }
+                                }
+                                ?>
+                                ">
+                            </div>
 
                         <div class="input-group">
                             <button type="submit" name="submit">Update Academic Details</button>

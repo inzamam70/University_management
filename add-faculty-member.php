@@ -92,7 +92,7 @@ if(isset($_POST['submit'])){
 
             <div class="table">
                 <div class="text">
-                    <h1>Add Academic Details</h1>
+                    <h1>Add Faculty Member</h1>
                 </div>
 
                 <div class="form">

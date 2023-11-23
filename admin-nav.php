@@ -63,6 +63,16 @@
                         <span class="title">University</span>
                     </a>
                 </li>
+                 
+                <li>
+                    <a href="admission_uni.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-link"></i>
+                        </span>
+                        <span class="title">Admission Apply</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="academics.php">
                         <span class="icon">
@@ -100,6 +110,69 @@
                 </li>
 
                 <li>
+                    <a href="alumnis.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-user-tie"></i>
+                        </span>
+                        <span class="title">Alumnis</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tutions.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-image"></i>
+                        </span>
+                        <span class="title">Tution fees</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="un_gra_programs.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                        </span>
+                        <span class="title">Under-gra-Programs</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="graduate_programs.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                        </span>
+                        <span class="title">Graduate Programs</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="catalogs.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-list-ul"></i>
+                        </span>
+                        <span class="title">Course catalog</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="achivments.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="title">Achievement</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="activities.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                        </span>
+                        <span class="title">Activities</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="admissions.php">
                         <span class="icon">
                         <i class="fa-solid fa-ticket"></i>
@@ -108,14 +181,7 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="tutions.php">
-                        <span class="icon">
-                        <i class="fa-solid fa-clock"></i>
-                        </span>
-                        <span class="title">Tution fees & Year</span>
-                    </a>
-                </li>
+               
                 
                 <li>
                     <a href="administrations.php">

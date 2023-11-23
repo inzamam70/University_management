@@ -17,6 +17,11 @@ if(isset($_POST['submit'])){
     $cost = $_POST['cost'];
     $year = $_POST['year'];
     $credit = $_POST['credit'];
+    $description = $_POST['description'];
+    $deadline = $_POST['deadline'];
+    $start = $_POST['start'];
+    $addmission_fee = $_POST['addmission_fee'];
+    
     $targetDir = "uploads/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -26,7 +31,8 @@ if(isset($_POST['submit'])){
     $img_name = $_FILES['image']['name'];
     $path = "uploads/".$img_name;
     move_uploaded_file($img_loc,$path);
-    $sql = "INSERT INTO `subject` (university_id, academic_id,name, department_head, image, cost,year,credit) VALUES ('$university_id', '$academic_id','$name', '$department_head', '$path', '$cost','$year','$credit')";
+    $sql = "INSERT INTO `subject` (university_id, academic_id,name, department_head, image, cost,year,credit,description,deadline,start,addmission_fee) 
+    VALUES ('$university_id', '$academic_id','$name', '$department_head', '$path', '$cost','$year','$credit','$description','$deadline','$start','$addmission_fee')";
     $result = mysqli_query($conn, $sql);
 
     if($result){
@@ -132,6 +138,11 @@ if(isset($_POST['submit'])){
                             <label for="name">University Name</label>
                             <input type="text" name="name" placeholder="Enter name">
                         </div>
+
+                        <div class="input-group">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" placeholder="Enter description">
+                        </div>
                
                         <div class="input-group">
                             <label for="department_head">Dept Head Name</label>
@@ -157,6 +168,23 @@ if(isset($_POST['submit'])){
                             <label for="credit">Total Credit</label>
                             <input type="text" name="credit" placeholder="Enter total credit">
                         </div>
+
+                        <div class="input-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="text" name="deadline" placeholder="Enter  deadline">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="start">Class start</label>
+                            <input type="text" name="start" placeholder="Enter  start">
+                        </div>
+
+                         <div class="input-group">
+                            <label for="addmission_fee">Total addmission fee</label>
+                            <input type="text" name="addmission_fee" placeholder="Enter total addmission_fee">
+                        </div>
+
+
 
                         <div class="input-group">
                             <button type="submit" name="submit">Add Academic Details</button>

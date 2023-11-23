@@ -68,6 +68,9 @@
                         <th>Tution Fees</th>
                         <th>Total Years</th>
                         <th>Total Credits</th>
+                        <th>Deadline</th>
+                        <th>Class Start</th>
+                        <th>Addmission Fee</th>
                         <th>Action</th>
 
                     </tr>
@@ -88,6 +91,9 @@
                         <td><?= $row['cost']?></td>
                         <td><?= $row['year']?></td>
                         <td><?= $row['credit']?></td>
+                        <td><?= $row['deadline']?></td>
+                        <td><?= $row['start']?></td>
+                        <td><?= $row['addmission_fee']?></td>
                         <td style="margin-left :20px;">
                             <div class="action-btn">
                              <a href="view-academic-details.php?id=<?= $row['id'] ?>" style="background:green;">View</a>

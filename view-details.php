@@ -156,9 +156,47 @@
         
 
         </div>
+
+        <div class="about">
+            <h2 class="title2">Admission Now</h2>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM admission_go WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <div class="box">
+                <div class="year_company" style="width:100%;margin-left:25px;">
+                   <h1 style="color:blue;"><?= $row['title']?></h1>
+                   <h4><?= $row['description']?></h4>
+                   <a href="<?= $row['link']?>" class="apply">Apply now</a>
+                </div>
+            </div>
+            <?php } ?>
+          
+        </div>
+
+        <div class="about">
+            <h2 class="title2">Tution Fees</h2>
+            <?php 
+                include_once 'config.php';
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM tution WHERE university_id = '$id'";
+                $result = mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <div class="box">
+                <div class="year_company" style="width:100%;margin-left:25px;">
+                    <img src="<?= $row['image']?>" alt="">
+                </div>
+            </div>
+            <?php } ?>
+          
+        </div>
  
         <div class="about">
-            <h2 class="title2">Admission</h2>
+            <h2 class="title2">Admission Offices</h2>
             <?php 
                 include_once 'config.php';
                 $id = $_GET['id'];
