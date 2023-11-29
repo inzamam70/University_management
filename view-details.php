@@ -158,7 +158,7 @@
         </div>
 
         <div class="about">
-            <h2 class="title2">Admission Now</h2>
+            <h2 class="title2">Admission Dateline</h2>
             <?php 
                 include_once 'config.php';
                 $id = $_GET['id'];
@@ -170,6 +170,7 @@
                 <div class="year_company" style="width:100%;margin-left:25px;">
                    <h1 style="color:blue;"><?= $row['title']?></h1>
                    <h4><?= $row['description']?></h4>
+                     <h4>Date: <?= $row['date']?></h4>
                    <a href="<?= $row['link']?>" class="apply">Apply now</a>
                 </div>
             </div>

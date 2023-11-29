@@ -6,10 +6,12 @@ session_start();
  
 $id = $_GET['id'];
 if(isset($_POST['submit'])){
+    $name = $_POST['name'];
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $date = $_POST['date'];
     $link = $_POST['link'];
-    $sql = "UPDATE admission_go SET title = '$title', description = '$description', link = '$link' WHERE id = '$id'";
+    $sql = "UPDATE admission_go SET name = '$name', title = '$title', description = '$description', date = '$date', link = '$link' WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -82,6 +84,21 @@ if(isset($_POST['submit'])){
 
                 <div class="form">
                     <form action="" method="post" enctype="multipart/form-data">
+
+                    <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" value= "
+                            <?php 
+                            $sql = "SELECT * FROM admission_go WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) { 
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['name'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
                          
                         <div class="input-group">
                             <label for="title">Title</label>
@@ -108,6 +125,21 @@ if(isset($_POST['submit'])){
                             if (mysqli_num_rows($result) > 0) { 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo $row['description'];
+                                }
+                            }
+                            ?>
+                            ">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="date">Dateline</label>
+                            <input type="text" name="date" value= "
+                            <?php 
+                            $sql = "SELECT * FROM admission_go WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) { 
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo $row['date'];
                                 }
                             }
                             ?>

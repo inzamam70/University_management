@@ -13,10 +13,12 @@ session_start();
  
 if(isset($_POST['submit'])){
     $university_id = $_POST['university_id'];
+    $name = $_POST['name'];
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $date = $_POST['date'];
     $link = $_POST['link'];
-    $sql = "INSERT INTO admission_go (university_id, title,description,link) VALUES ('$university_id', '$title','$description','$link')";
+    $sql = "INSERT INTO admission_go (university_id, name, title, description, date, link) VALUES ('$university_id', '$name', '$title', '$description', '$date', '$link')";
 
     $result = mysqli_query($conn, $sql);
 
@@ -104,7 +106,11 @@ if(isset($_POST['submit'])){
                             <?php } ?>
                         </select>
                         </div>
-               
+                        
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter  name">
+                        </div>
                         <div class="input-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="name" placeholder="Enter  title">
@@ -112,6 +118,10 @@ if(isset($_POST['submit'])){
                         <div class="input-group">
                             <label for="description">Description</label>
                             <input type="text" name="description" id="name" placeholder="Enter  description">
+                        </div>
+                        <div class="input-group">
+                            <label for="date">Dateline</label>
+                            <input type="text" name="date" id="name" placeholder="Enter  date">
                         </div>
                         <div class="input-group">
                             <label for="link">Web Link</label>

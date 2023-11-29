@@ -63,8 +63,10 @@
                     <tr>
 
                         <th>S.No</th>
+                        <th>Name</th>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Dateline</th>
                         <th>Action</th>
 
                     </tr>
@@ -79,8 +81,10 @@
                     <tr>
 
                         <td><?= $id++ ?></td>
+                        <td><?= $row['name']?></td>
                         <td><?= $row['title']?></td>
                         <td><?= $row['description']?></td>
+                        <td><?= $row['date']?></td>
                         <td style="margin-left :20px;">
                             <div class="action-btn">
                              <a href="view-admission_uni.php?id=<?= $row['id'] ?>" style="background:green;">View</a>

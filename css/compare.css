@@ -232,3 +232,39 @@
     background: #f1a20e;
     border: 1px solid #000000;
 }
+.admission-table{
+    width: 100%;
+    margin-top: 40px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    border: 2px solid #f10606;
+
+}
+.admission-table table{
+    text-align: center;
+    width: 100%;
+}
+.admission-table table thead th{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: rgb(0, 0, 0);
+    background-color: #f1a20e;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.admission-table table tbody td{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: rgb(0, 0, 0);
+    
+}
+.admission-table table tbody td .link{
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+    
+  
+}

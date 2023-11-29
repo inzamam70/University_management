@@ -70,7 +70,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="container">
 
                 <div class="main-txt">
-                    <h1>D<span>peartment</span></h1>
+                    <h1>D<span>epartment</span></h1>
                 </div>
 
                 <div class="process-product">

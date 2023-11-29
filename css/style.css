@@ -13,7 +13,80 @@
 /* Navbar Start */
 #navbar{
     background: #f9f9f9;
+    width: 100%;
+}
+.menu_ber{
+    background: #f9f9f9;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: 0.5s ease;
 
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.logo h1{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+}
+.logo a{
+    text-decoration: none;
+    color: #000000;
+
+}
+.menu_ber ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu_ber ul li {
+    padding: 10px 20px;
+    position: relative;
+}
+.menu_ber ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.5s ease;
+}
+.menu_ber ul li a:hover{
+    color: #ff6d39;
+}
+.drop-down{
+ display: none;
+}
+.drop-down ul{
+    display: block;
+    margin: 10px;
+}
+.drop-down ul li{
+   
+}
+
+.menu_ber ul li:hover .drop-down{
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 100%;
+    background: #f9f9f9;
 }
 #logo{
     font-size: 36px;

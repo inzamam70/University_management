@@ -76,9 +76,13 @@ session_start();
                 ?>
                 
                <div class="view-category">
-                <h1><?= $row['title']?></h1>
+                <h1><?= $row['name']?></h1>
+                <br>
+                <h2><?= $row['title']?></h2>
                 <br>
                 <p><?= $row['description']?></p>
+                <br>
+                <p><?= $row['date']?></p>
                 <br>
                 <p><?= $row['link']?></p>
                 <?php } } ?>
