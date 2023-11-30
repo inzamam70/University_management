@@ -193,6 +193,15 @@
                 </li>
 
                 <li>
+                    <a href="sub_reviews.php">
+                        <span class="icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        </span>
+                        <span class="title">Reviews</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="gallaries.php">
                         <span class="icon">
                         <i class="fa-solid fa-image"></i>

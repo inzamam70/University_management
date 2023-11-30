@@ -115,7 +115,7 @@
     <li><a href="reviews.php">Reviews</a></li>
     <li><a href="contact.php">Contact</a></li>
     <li><a href="about.php">About</a></li>
-    <li><a href="faq.php">FAQS</a></li>
+    <li><a href="faq.php">FAQs</a></li>
     <div class="search">
     <form class="d-flex" method="get" action="search.php">
       <input class="form-control me-2" type="text" placeholder="Search" name="search">

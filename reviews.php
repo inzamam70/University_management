@@ -47,29 +47,31 @@
               <h1>R<span>eviews</span></h1>
             </div>
             <div class="review-box">
-                
-             
-                    <?php 
+                <?php 
                 include_once 'config.php';
-                 
-                $sql = "SELECT * FROM sub_review ";
-                $result = mysqli_query($conn,$sql);
-                if(mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_assoc($result)){?>
-
-                        <div class="review-card">
-                            <div class="review-card-text">
-                                <h1><?= $row['name']?></h1>
-                                <h3><?= $row['dept']?></h3>
-                                <p><?= $row['review']?></p>
-                            </div>
-                        </div>
-                    <?php }
-                } else {
-                    echo "<h1>No Review Found</h1>";
-                }
-
+                 $sql = "SELECT * FROM dept_review";
+                 $result = mysqli_query($conn,$sql);
+                 while($row = mysqli_fetch_assoc($result)){
                 ?>
+                    <div class="card">
+                        <img
+                            class="card__background"
+                            src="<?= $row['image']?>"
+                            alt=""
+                            
+                        />
+                        <div class="card__content | flow">
+                            <div class="card__content--container | flow">
+                            <h2 class="card__title"><?= $row['title']?></h2>
+                            <p class="card__description">
+                                <?= $row['full_title']?>
+                            </p>
+                            </div>
+                            <a href="sub_review_details.php?id=<?= $row['id']?>
+                            " class="card__button">See More</a>
+                        </div>
+            </div>
+            <?php } ?>
              
             </div>
         </div>
