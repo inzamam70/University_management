@@ -41,7 +41,7 @@
     <!-- Navbar End -->
    
     <div class="item-body">
-    <div class="main-txt" style="padding:10px;margin-bottom:20px">
+    <div class="main-txt" style="padding:10px;margin-bottom:20px;margin-top:100px;">
           <h1><span>U</span>niversity</h1>
         </div>
 
